@@ -5,7 +5,7 @@
         >School Schedule <font-awesome-icon class="mx-1" icon="calendar-week" /></a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link fw-bold text-dark active" href="">Schedule</a>
+          <a class="nav-link fw-bold text-dark active" href="/">Schedule</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-bold text-dark" href="#/courses">Courses</a>

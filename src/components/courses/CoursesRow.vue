@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import RemoveButton from './RemoveButton';
+import RemoveButton from '../utilities/RemoveButton';
 
 export default {
   name: 'CoursesRow',

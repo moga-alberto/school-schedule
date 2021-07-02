@@ -40,8 +40,4 @@ export default {
 </script>
 
 <style scoped>
-.dark {
-  background-color: #292b2c !important;
-  color: #fff !important;
-}
 </style>

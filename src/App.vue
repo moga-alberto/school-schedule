@@ -26,4 +26,11 @@ export default {
   padding: 0;
   margin: 0;
 }
+.bg-dark {
+  background-color: #2c3e50 !important;
+}
+.dark {
+  background-color: #292b2c !important;
+  color: #fff !important;
+}
 </style>

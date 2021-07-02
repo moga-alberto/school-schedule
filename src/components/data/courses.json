@@ -1,0 +1,164 @@
+[
+  {
+    "courses": [
+      {
+        "courseName": "Biology Fundamentals",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Molecular Biology",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Chemistry",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Particle Physics",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Thermodynamics",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Chaos Theory and Complex Systems",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Microfluidics",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Orc.Objective Reduction Theory",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Mathematical Analysis",
+        "teacher": [],
+        "studentsList": []
+      },
+      {
+        "courseName": "Multidimensional Geometry",
+        "teacher": [],
+        "studentsList": []
+      }
+    ],
+    "teachers": [
+      {
+        "teacher": "David Jackson",
+        "courses": []
+      },
+      {
+        "teacher": "Nora Carter",
+        "courses": []
+      },
+      {
+        "teacher": "Mike Huston",
+        "courses": []
+      },
+      {
+        "teacher": "Dana Jackson",
+        "courses": []
+      },
+      {
+        "teacher": "Daniel Cole",
+        "courses": []
+      }
+    ],
+    "students": [
+      {
+        "student": "Gib Carpenter",
+        "courses": []
+      },
+      {
+        "student": "Jeannie Walton",
+        "courses": []
+      },
+      {
+        "student": "Griffin Jekyll",
+        "courses": []
+      },
+      {
+        "student": "Katrina Warren",
+        "courses": []
+      },
+      {
+        "student": "Cherilyn Brittain",
+        "courses": []
+      },
+      {
+        "student": "Sharleen Atwood",
+        "courses": []
+      },
+      {
+        "student": "Sophie Romilly",
+        "courses": []
+      },
+      {
+        "student": "Candace Becket",
+        "courses": []
+      },
+      {
+        "student": "Charity Ayers",
+        "courses": []
+      },
+      {
+        "student": "Sheldon Kendall",
+        "courses": []
+      },
+      {
+        "student": "Luke Simmons",
+        "courses": []
+      },
+      {
+        "student": "Alan Carman",
+        "courses": []
+      },
+      {
+        "student": "Layne Millard",
+        "courses": []
+      },
+      {
+        "student": "Fannie Appleby",
+        "courses": []
+      },
+      {
+        "student": "Gabriel Sidney",
+        "courses": []
+      },
+      {
+        "student": "Helena Winfield",
+        "courses": []
+      },
+      {
+        "student": "Agnes Hathaway",
+        "courses": []
+      },
+      {
+        "student": "Stella Devin",
+        "courses": []
+      },
+      {
+        "student": "Joseph Appleton",
+        "courses": []
+      },
+      {
+        "student": "Clara Matthews",
+        "courses": []
+      },
+      {
+        "student": "Sigmund Patterson",
+        "courses": []
+      }
+    ]
+  }
+]
