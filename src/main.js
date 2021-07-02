@@ -42,10 +42,10 @@ new Vue({
 // const collapseList = collapseElementList.map(collapseEl => new bootstrap.Collapse(collapseEl));
 
 const requestScheduleList = new XMLHttpRequest();
-requestScheduleList.open('GET', 'https://github.com/moga-alberto/school-schedule/blob/master/src/components/data/courses.json');
+requestScheduleList.open('GET', 'https://raw.githubusercontent.com/moga-alberto/school-schedule/blob/master/src/components/data/courses.json');
 requestScheduleList.onload = () => {
   const ScheduleList = JSON.parse(requestScheduleList.responseText);
   console.log(ScheduleList);
 };
 requestScheduleList.send();
-ƒ
+
