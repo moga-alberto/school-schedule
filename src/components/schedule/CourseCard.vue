@@ -1,28 +1,47 @@
 <template>
-  <div class="d-flex flex-column text-md-center">
-    <div class="p-2">
-      <b-button :id="'popover-button-sync' + name" variant="primary"
-        >I have a popover</b-button
-      >
+  <td>
+    <div class="repeat">
+      <div class="d-flex flex-column text-md-center">
+        <div>
+          <b-button class="course-card" v-b-modal="'modal' + index + indx2"
+            >Open modal</b-button
+          >
+          <b-modal
+            v-bind:id="'modal' + index + indx2"
+            ok-only
+            centered
+            hide-backdrop
+            content-class="shadow"
+            :title="index + indx2"
+          >
+            <p class="my-2">
+              We've added the utility class <code>'shadow'</code>
+              to the modal content for added effect.
+            </p>
+          </b-modal>
+        </div>
+      </div>
     </div>
-
-    <div class="p-2">
-      <b-popover :target="'popover-button-sync' + name" title="Popover">
-        Hello <strong>World!</strong>
-      </b-popover>
-    </div>
-  </div>
+  </td>
 </template>
 
 <script>
+fetch('//build/schedule_list.json').then(resp => resp.json()).then(console.log);
 export default {
+  props: ['index', 'indx2'],
   name: 'CourseCard',
   data() {
     return {
       name: 'Course Name',
+      // schedule: jsonData,
     };
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.course-card {
+  width: 120px;
+  height: 80px;
+}
+</style>
