@@ -1,5 +1,5 @@
 <template>
-  <button class="bg-danger badge border-0">
+  <button class="btn btn-danger badge border-0">
     <font-awesome-icon class="text-white fs-5" icon="times" />
   </button>
 </template>

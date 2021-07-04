@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-.active {
+nav .active {
   background-color: #292b2c !important;
   color: #fff !important;
 }

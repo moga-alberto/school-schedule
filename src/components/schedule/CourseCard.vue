@@ -4,7 +4,7 @@
       <div class="d-flex flex-column text-md-center">
         <div>
           <b-button class="course-card" v-b-modal="'modal' + index + indx2"
-            >Open modal</b-button
+            >Open modal{{ json }}</b-button
           >
           <b-modal
             v-bind:id="'modal' + index + indx2"
@@ -26,14 +26,13 @@
 </template>
 
 <script>
-fetch('//build/schedule_list.json').then(resp => resp.json()).then(console.log);
 export default {
   props: ['index', 'indx2'],
   name: 'CourseCard',
   data() {
     return {
       name: 'Course Name',
-      // schedule: jsonData,
+      json: this.jData,
     };
   },
 };
@@ -41,7 +40,8 @@ export default {
 
 <style scoped>
 .course-card {
-  width: 120px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
 }
 </style>

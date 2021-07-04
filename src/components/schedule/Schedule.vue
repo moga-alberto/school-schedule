@@ -19,7 +19,11 @@
             </tr>
           </thead>
           <tbody>
-            <CalendarRow v-for="index in 6" :key="index" v-bind:indx="index.toString()" />
+            <CalendarRow
+              v-for="index in 6"
+              :key="index"
+              v-bind:indx="index.toString()"
+            />
             <!-- <CalendarRow />
             <CalendarRow />
             <CalendarRow />
@@ -38,11 +42,6 @@ import CalendarRow from '../schedule/CalendarRow';
 export default {
   name: 'Schedule',
   components: { CalendarRow },
-  // data() {
-  //   return {
-  //     indx: 3,
-  //   };
-  // },
 };
 </script>
 

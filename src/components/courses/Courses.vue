@@ -12,32 +12,59 @@
               <th scope="col">Teacher</th>
               <th scope="col">Students</th>
               <th scope="col" style="width: fit-content;"></th>
+              <th scope="col" style="width: fit-content;"></th>
             </tr>
           </thead>
           <tbody class="border">
-            <CoursesRow />
-            <CoursesRow />
-            <CoursesRow />
-            <CoursesRow />
-            <CoursesRow />
+            <courses-row
+              v-for="index in coursesNumber"
+              :key="index"
+              v-bind:index="index"
+              v-b-modal="index + reason + '-modal'"
+              :courseTitle="post.body.courses[index - 1].courseName"
+              :post="post"
+            />
           </tbody>
         </table>
       </div>
-      <div class="card-footer bg-transparent border-dark">Footer</div>
+      <div class="card-footer bg-transparent border-dark d-flex">
+        <add-course-button class="" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import AddCourseButton from '../utilities/AddCourseButton';
 import CoursesRow from './CoursesRow';
+import EditModal from '../utilities/EditModal';
 
 export default {
   name: 'Courses',
   components: {
     CoursesRow,
+    AddCourseButton,
+    EditModal,
+  },
+  data() {
+    return {
+      reason: 'edit-course',
+      post: null,
+      coursesNumber: null,
+    };
+  },
+  methods: {
+    getJson() {
+      this.$http.get().then((res) => {
+        this.post = res;
+        this.coursesNumber = Number(this.post.body.courses.length);
+      });
+    },
+  },
+  created() {
+    this.getJson();
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -8,18 +8,23 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCalendarWeek, faTimes, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarWeek, faTimes, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import VueResource from 'vue-resource';
+import http from 'http';
 import App from './App';
 import router from './router';
 
 library.add(faCalendarWeek);
 library.add(faTimes);
 library.add(faClock);
+library.add(faEdit);
 
+Vue.use(VueResource);
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.http.options.root = 'https://school-schedule-project-default-rtdb.europe-west1.firebasedatabase.app/.json';
 
 
 // const tooltipTriggerList = [].slice.call(document.querySelectorAll('
@@ -40,12 +45,3 @@ new Vue({
 
 // const collapseElementList = [].slice.call(document.querySelectorAll('.collapse'));
 // const collapseList = collapseElementList.map(collapseEl => new bootstrap.Collapse(collapseEl));
-
-// const requestScheduleList = new XMLHttpRequest();
-// requestScheduleList.open('GET', 'https://raw.githubusercontent.com/moga-alberto/school-schedule/blob/master/src/components/data/courses.json');
-// requestScheduleList.onload = () => {
-//   const ScheduleList = JSON.parse(requestScheduleList.responseText);
-//   console.log(ScheduleList);
-// };
-// requestScheduleList.send();
-
