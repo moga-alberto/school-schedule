@@ -1,18 +1,21 @@
 <template>
   <tr class="fs-5 hover">
-    <th scope="row">{{ courseTitle }}</th>
-    <td>Mark</td>
-    <td>Otto</td>
+    <th scope="row" :key="courseTitle">{{ courseTitle }}</th>
+    <td :key="teacherKey">{{ teacher }}</td>
+    <td>{{ sNumber }}</td>
     <td style="width: 0;">
       <edit-modal
-      class="edit-button"
-      :name="'edit' + index"
+        class="edit-button"
+        :name="'edit' + index"
         v-bind:reason="index + 'edit-course'"
         v-bind:modalTitle="'Edit Course'"
         v-bind:modalAction="'Save'"
         v-bind:modalButton="html"
-        v-bind:btnClass="'edit btn-light border-0 fs-6 fw-bold border-0'"
+        v-bind:btnClass="'edit btn-light border-0 fs-6 fw-bold border-0 mx-3'"
         :post="post"
+        :rowIndex="index"
+        :add="false"
+        @update2="forceRerender"
       />
     </td>
     <td style="width: 0;"><remove-button class="me-2" /></td>
@@ -34,7 +37,41 @@ export default {
     return {
       // eslint-disable-next-line quotes
       html: '<span>Edit<span/>',
+      teacher: this.post.body.courses[this.index - 1].teacher[0],
+      sNumber: 0,
+      studentsKey: 100,
+      teacherKey: 0,
     };
+  },
+  watch: {
+    post: 'getStudentsNumber',
+  },
+  methods: {
+
+    forceRerender() {
+      this.studentsKey += 1;
+      this.teacherKey += 1;
+    },
+    /* eslint-disable func-names */
+    /* eslint-disable object-shorthand */
+    getStudentsNumber: function () {
+      this.sNumber = 0;
+      const listLength = this.post.body.courses[this.index - 1].studentsList
+        .length;
+      const studentsList = this.post.body.courses[this.index - 1].studentsList;
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < listLength; i++) {
+        if (studentsList[i]) {
+          this.sNumber = this.sNumber + 1;
+        }
+      }
+    },
+  },
+  created() {
+    this.getStudentsNumber();
+  },
+  update() {
+    this.getStudentsNumber();
   },
 };
 </script>
@@ -51,7 +88,7 @@ export default {
   visibility: hidden;
 }
 
-.hover:hover .edit-button{
+.hover:hover .edit-button {
   visibility: visible;
   /* background-color: none !important; */
 }

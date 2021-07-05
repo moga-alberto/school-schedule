@@ -23,12 +23,13 @@
               v-b-modal="index + reason + '-modal'"
               :courseTitle="post.body.courses[index - 1].courseName"
               :post="post"
+              @update="getList"
             />
           </tbody>
         </table>
       </div>
       <div class="card-footer bg-transparent border-dark d-flex">
-        <add-course-button class="" />
+        <add-course-button />
       </div>
     </div>
   </div>
@@ -54,15 +55,23 @@ export default {
     };
   },
   methods: {
-    getJson() {
+    getList() {
       this.$http.get().then((res) => {
         this.post = res;
         this.coursesNumber = Number(this.post.body.courses.length);
       });
     },
+    /* eslint-disable func-names */
+    /* eslint-disable object-shorthand */
+    update: function () {
+      this.getList();
+    },
+  },
+  watch: {
+    post: 'update',
   },
   created() {
-    this.getJson();
+    this.getList();
   },
 };
 </script>

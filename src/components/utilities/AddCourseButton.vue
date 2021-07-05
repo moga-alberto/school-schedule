@@ -8,6 +8,7 @@
         v-bind:modalAction="'Add'"
         v-bind:modalButton="'Add Course'"
         v-bind:btnClass="'btn course-card btn-success fs-5 fw-bold border-0'"
+        :add="true"
       />
     </div>
   </div>

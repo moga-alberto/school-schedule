@@ -1,162 +1,616 @@
 {
   "courses": [
     {
-      "courseName": "BiologyFundamentals",
-      "teacher": [],
-      "studentsList": []
+      "courseName": "Biology Fundamentals",
+      "teacher": ["Nora Carter"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Molecular Biology",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Nora Carter"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Chemistry",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["David Jackson"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Particle Physics",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["David Jackson"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Thermodynamics",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Mike Huston"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Chaos Theory and Complex Systems",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Dana Jackson"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Microfluidics",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Mike Huston"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Orc.Objective Reduction Theory",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Dana Jackson"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Mathematical Analysis",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Daniel Cole"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     },
     {
       "courseName": "Multidimensional Geometry",
-      "teacher": [],
-      "studentsList": []
+      "teacher": ["Daniel Cole"],
+      "studentsList": [
+        "Gib Carpenter",
+        "Jeannie Walton",
+        "Griffin Jekyll",
+        "Katrina Warren",
+        "Cherilyn Brittain",
+        "Sharleen Atwood",
+        "Sophie Romilly",
+        "Candace Becket",
+        "Charity Ayers",
+        "Sheldon Kendall",
+        "Luke Simmons",
+        "Alan Carman",
+        "Layne Millard",
+        "Fannie Appleby",
+        "Gabriel Sidney",
+        "Helena Winfield",
+        "Agnes Hathaway",
+        "Stella Devin",
+        "Joseph Appleton",
+        "Clara Matthews",
+        "Sigmund Patterson"
+      ]
     }
   ],
   "teachers": [
     {
       "teacher": "David Jackson",
-      "courses": []
+      "courses": ["Chemistry", "Particle Physics"]
     },
     {
       "teacher": "Nora Carter",
-      "courses": []
+      "courses": ["Biology Fundamentals", "Molecular Biology"]
     },
     {
       "teacher": "Mike Huston",
-      "courses": []
+      "courses": ["Thermodynamics", "Microfluidics"]
     },
     {
       "teacher": "Dana Jackson",
-      "courses": []
+      "courses": [
+        "Chaos Theory and Complex Systems",
+        "Orc.Objective Reduction Theory"
+      ]
     },
     {
       "teacher": "Daniel Cole",
-      "courses": []
+      "courses": ["Mathematical Analysis", "Multidimensional Geometry"]
     }
   ],
   "students": [
     {
       "student": "Gib Carpenter",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Jeannie Walton",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Griffin Jekyll",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Katrina Warren",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Cherilyn Brittain",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Sharleen Atwood",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Sophie Romilly",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Candace Becket",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Charity Ayers",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Sheldon Kendall",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Luke Simmons",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Alan Carman",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Layne Millard",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Fannie Appleby",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Gabriel Sidney",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Helena Winfield",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Agnes Hathaway",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Stella Devin",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Joseph Appleton",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Clara Matthews",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     },
     {
       "student": "Sigmund Patterson",
-      "courses": []
+      "courses": [
+        "Biology Fundamentals",
+        "Molecular Biology",
+        "Chemistry",
+        "Particle Physics",
+        "Thermodynamics",
+        "Chaos Theory and Complex Systems",
+        "Microfluidics",
+        "Orc.Objective Reduction Theory",
+        "Mathematical Analysis",
+        "Multidimensional Geometry"
+      ]
     }
   ],
   "position": [

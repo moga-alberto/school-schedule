@@ -11,6 +11,7 @@
       centered
       content-class="shadow"
       :title="modalTitle"
+      @ok="ok()"
     >
       <template #modal-header="{ close }">
         <!-- Emulate built in modal header close button action -->
@@ -24,7 +25,7 @@
       </template>
 
       <template #default="{ }">
-        <div class="container">
+        <div class="container" style="width: 90%;">
           <div class="row">
             <div class="w-50 col">
               <b-form inline>
@@ -35,6 +36,7 @@
                   id="inline-form-input-name"
                   class="mb-2 mr-sm-2 mb-sm-0 border-secondary"
                   :placeholder="'Course Name'"
+                  :value="add ? '' : course[rowIndex - 1].courseName"
                 ></b-form-input>
               </b-form>
             </div>
@@ -49,7 +51,7 @@
                   id="form-custom-select-pref"
                   class="mb-2 mr-sm-2 mb-sm-0 fs-6 p-2 w-100 border-secondary rounded"
                   :options="[{ text: 'Choose teacher...', value: null }]"
-                  :value="null"
+                  :value="add ? null : course[rowIndex - 1].teacher[0]"
                 >
                   <option
                     v-for="index in tNumber"
@@ -61,22 +63,23 @@
               </b-form>
             </div>
           </div>
-          <div class="row">
+          <div class="row w-100">
             <div
-              class="student-options w-100 my-4"
-              style="height: 300px; overflow-y: auto;"
+              class="student-options
+              w-100
+              my-4
+              mx-2 d-flex flex-column flex-wrap ps-3 align-content-between "
+              style="height: 250px; overflow-y: auto; overflow-x: auto"
             >
-              <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0"
-                >Remember my preference</b-form-checkbox
-              >
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
-              autem accusantium ratione necessitatibus ipsa tempora dolorum ex,
-              molestias debitis impedit fugit, quod aperiam repudiandae? Ab ipsa
-              accusantium possimus consequatur est? Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Quaerat autem accusantium ratione
-              necessitatibus ipsa tempora dolorum ex, molestias debitis impedit
-              fugit, quod aperiam repudiandae? Ab ipsa accusantium possimus
-              consequatur est?
+              <student-check
+                class="p-1"
+                v-for="indexS in sNumber - 1"
+                :key="indexS"
+                :post="post"
+                :indexS="indexS"
+                :rowIndex="rowIndex"
+                :add="add"
+              />
             </div>
           </div>
         </div>
@@ -101,6 +104,8 @@
 </template>
 
 <script>
+import StudentCheck from '../courses/StudentCheck';
+
 export default {
   name: 'EditModal',
   data() {
@@ -108,22 +113,51 @@ export default {
       post: null,
       tNumber: null,
       teachers: null,
+      course: null,
+      status: 'accepted',
     };
   },
-  props: ['reason', 'modalTitle', 'modalAction', 'modalButton', 'btnClass'],
-  components: {},
+  props: [
+    'reason',
+    'modalTitle',
+    'modalAction',
+    'modalButton',
+    'btnClass',
+    'rowIndex',
+    'add',
+  ],
+  components: { StudentCheck },
   methods: {
-    teachersNumber() {
+    getPost() {
       // this.tNumber = Number(this.post.body.teachers.length);
       this.$http.get().then((res) => {
         this.post = res;
         this.tNumber = Number(this.post.body.teachers.length);
         this.teachers = this.post.body.teachers;
+        this.course = this.post.body.courses;
+        this.sNumber = Number(this.post.body.students.length);
+        // console.log(this.add);
       });
+    },
+    sendPost() {
+      this.getPost();
+
+      const postData = this.post.body;
+      // console.log(postData);
+      this.$http.put('', postData);
+      console.log(postData);
+      // .then((res) => {
+      // console.log(res.body);
+      // });
+    },
+    ok() {
+      // this.getPost();
+      this.sendPost();
+      // this.$emit('update2');
     },
   },
   created() {
-    this.teachersNumber();
+    this.getPost();
   },
 };
 </script>
