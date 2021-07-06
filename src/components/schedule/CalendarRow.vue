@@ -14,18 +14,6 @@
 <script>
 import CourseCard from './CourseCard';
 
-// let jData;
-
-// fetch(
-//   'https://school-schedule-project-default-rtdb.europe-west1.firebasedatabase.app/.json',
-// )
-//   .then(resp => resp.json())
-//   .then((json) => {
-//     jData = json;
-//     // eslint-disable-next-line no-console
-//     console.log(json);
-//   });
-
 export default {
   props: ['indx', 'jData'],
   name: 'CalendarRow',

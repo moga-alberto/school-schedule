@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
     <Nav />
-    <router-view/>
+    <router-view :post.sync="post" />
   </div>
 </template>
 
@@ -16,28 +16,23 @@ export default {
   components: {
     Nav,
   },
-  methods: {
-    // onload() {
-    //   this.$http
-    //     .get(
-    //       'https://school-schedule-project-default-rtdb.europe-west1.firebasedatabase.app/',
-    //     )
-    //     .then((res) => {
-    //       console.log(res);
-    //     });
-    // },
+  data() {
+    return {
+      post: this.$store.getters.get_data,
+    };
   },
-  // created() {
-  //   this.$http
-  //     .get()
-  //     .then(
-  //       (res) => {
-  //         this.post = res;
-  //         // eslint-disable-next-line no-console
-  //         console.log(this.post.body.courses);
-  //       },
-  //     );
-  // },
+  methods: {
+    getList() {
+      this.$http.get().then((res) => {
+        this.$store.commit('setPost', res);
+      });
+      // this.coursesNumber = Number(this.$store.getters.get_data.body.courses.length);
+      console.log(this.$store.getters.get_data);
+    },
+  },
+  created() {
+    this.getList();
+  },
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <tr class="fs-5 hover">
-    <th scope="row" :key="courseTitle">{{ courseTitle }}</th>
-    <td :key="teacherKey">{{ teacher }}</td>
-    <td>{{ sNumber }}</td>
+    <th scope="row" :key="keyUp">{{ courseTitle }}</th>
+    <td :key="keyUp + teacherKey">{{ teacher }}</td>
+    <td :key="keyUp + studentsKey">{{ sNumber }}</td>
     <td style="width: 0;">
       <edit-modal
         class="edit-button"
@@ -12,7 +12,8 @@
         v-bind:modalAction="'Save'"
         v-bind:modalButton="html"
         v-bind:btnClass="'edit btn-light border-0 fs-6 fw-bold border-0 mx-3'"
-        :post="post"
+        :post.sync="post"
+        :keyUp.sync="keyUp"
         :rowIndex="index"
         :add="false"
         @update2="forceRerender"
@@ -28,7 +29,7 @@ import RemoveButton from '../utilities/RemoveButton';
 
 export default {
   name: 'CoursesRow',
-  props: ['index', 'courseTitle', 'post'],
+  props: ['index', 'courseTitle'],
   components: {
     RemoveButton,
     EditModal,
@@ -40,14 +41,15 @@ export default {
       teacher: this.post.body.courses[this.index - 1].teacher[0],
       sNumber: 0,
       studentsKey: 100,
-      teacherKey: 0,
+      teacherKey: 1000,
+      keyUp: 0,
+      post: this.$store.state.post,
     };
   },
   watch: {
     post: 'getStudentsNumber',
   },
   methods: {
-
     forceRerender() {
       this.studentsKey += 1;
       this.teacherKey += 1;

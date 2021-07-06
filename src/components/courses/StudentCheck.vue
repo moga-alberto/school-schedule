@@ -15,7 +15,7 @@
 <script>
 export default {
   name: 'StudentCheck',
-  props: ['post', 'indexS', 'rowIndex', 'add'],
+  props: ['indexS', 'rowIndex', 'add'],
   methods: {
     checkIfAdd() {
       if (this.rowIndex) {
@@ -52,6 +52,7 @@ export default {
     return {
       status: null,
       student: this.post.body.students[this.indexS - 1].student,
+      post: this.$store.state.post,
     };
   },
   created() {

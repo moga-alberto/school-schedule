@@ -11,9 +11,22 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCalendarWeek, faTimes, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import VueResource from 'vue-resource';
-import http from 'http';
+import Vuex from 'vuex';
+import store from './store/store';
 import App from './App';
 import router from './router';
+
+Vue.use(store);
+Vue.use(Vuex);
+
+Vue.prototype.$store = store;
+
+const app = new Vue({
+  /* .. other properties .. */
+  store,
+});
+
+Vue.use(app);
 
 library.add(faCalendarWeek);
 library.add(faTimes);
@@ -39,6 +52,7 @@ Vue.http.options.root = 'https://school-schedule-project-default-rtdb.europe-wes
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
 });

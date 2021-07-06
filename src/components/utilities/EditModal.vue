@@ -75,7 +75,7 @@
                 class="p-1"
                 v-for="indexS in sNumber - 1"
                 :key="indexS"
-                :post="post"
+                :post.sync="post"
                 :indexS="indexS"
                 :rowIndex="rowIndex"
                 :add="add"
@@ -110,11 +110,12 @@ export default {
   name: 'EditModal',
   data() {
     return {
-      post: null,
+      // post: null,
       tNumber: null,
       teachers: null,
       course: null,
       status: 'accepted',
+      post: this.$store.state.post,
     };
   },
   props: [
@@ -125,27 +126,29 @@ export default {
     'btnClass',
     'rowIndex',
     'add',
+    'keyUp',
   ],
   components: { StudentCheck },
   methods: {
     getPost() {
+      // console.log(this.$store.state.post);
       // this.tNumber = Number(this.post.body.teachers.length);
-      this.$http.get().then((res) => {
-        this.post = res;
-        this.tNumber = Number(this.post.body.teachers.length);
-        this.teachers = this.post.body.teachers;
-        this.course = this.post.body.courses;
-        this.sNumber = Number(this.post.body.students.length);
-        // console.log(this.add);
-      });
+      // this.$http.get().then((res) => {
+      // this.post = res;
+      // this.tNumber = Number(this.$store.state.post.body.teachers.length);
+      // this.teachers = this.$store.state.post.body.teachers;
+      // this.course = this.$store.state.post.body.courses;
+      // this.sNumber = Number(this.$store.state.post.body.students.length);
+      // console.log(this.add);
+      // });
     },
     sendPost() {
       this.getPost();
-
+      this.keyUp += 1;
       const postData = this.post.body;
       // console.log(postData);
       this.$http.put('', postData);
-      console.log(postData);
+      // console.log(postData);
       // .then((res) => {
       // console.log(res.body);
       // });
