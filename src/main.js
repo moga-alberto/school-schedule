@@ -59,3 +59,4 @@ new Vue({
 
 // const collapseElementList = [].slice.call(document.querySelectorAll('.collapse'));
 // const collapseList = collapseElementList.map(collapseEl => new bootstrap.Collapse(collapseEl));
+

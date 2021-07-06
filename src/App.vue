@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
     <Nav />
-    <router-view :post.sync="post" />
+    <router-view />
   </div>
 </template>
 
@@ -13,6 +13,7 @@ Vue.use(require('vue-resource'));
 
 export default {
   name: 'App',
+  props: [],
   components: {
     Nav,
   },
@@ -22,16 +23,30 @@ export default {
     };
   },
   methods: {
-    getList() {
+    getCoursesNumber() {
+      this.coursesNumber = Number(this.$store.getters.get_data.body.courses.length);
+    },
+    getData() {
       this.$http.get().then((res) => {
-        this.$store.commit('setPost', res);
+        const response = res;
+        this.$store.commit('setPost', response);
       });
-      // this.coursesNumber = Number(this.$store.getters.get_data.body.courses.length);
-      console.log(this.$store.getters.get_data);
     },
   },
+  mounted() {
+    this.getCoursesNumber();
+  },
+  beforeCreate() {
+    this.$http.get().then((res) => {
+      const response = res;
+      this.$store.commit('setPost', response);
+    });
+  },
   created() {
-    this.getList();
+    this.getData();
+  },
+  beforeUpdate() {
+    this.getData();
   },
 };
 </script>

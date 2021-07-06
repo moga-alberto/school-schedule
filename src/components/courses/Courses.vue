@@ -22,14 +22,12 @@
               v-bind:index="index"
               v-b-modal="index + reason + '-modal'"
               :courseTitle="post.body.courses[index - 1].courseName"
-              :post.sync="post"
-              @update="getList"
             />
           </tbody>
         </table>
       </div>
       <div class="card-footer bg-transparent border-dark d-flex">
-        <add-course-button :post.sync="post" />
+        <add-course-button />
       </div>
     </div>
   </div>
@@ -52,14 +50,18 @@ export default {
     return {
       reason: 'edit-course',
       coursesNumber: null,
-      post: this.$store.state.post,
+      post: this.$store.getters.get_data,
     };
   },
   methods: {
-    getList() {
+    getCoursesNumber() {
       // this.$http.get().then((res) => {
       // this.post = res;
-      this.coursesNumber = Number(this.post.body.courses.length);
+      setTimeout(() => {
+        this.post = this.$store.getters.get_data;
+        this.coursesNumber = Number(this.post.body.courses.length);
+      }, 100);
+      // this.coursesNumber = Number(this.post.body.courses.length);
       // });
     },
     /* eslint-disable func-names */
@@ -71,9 +73,9 @@ export default {
   // watch: {
   //   post: 'update',
   // },
-  // beforeMount() {
-  //   this.getList();
-  // },
+  created() {
+    this.getCoursesNumber();
+  },
 };
 </script>
 

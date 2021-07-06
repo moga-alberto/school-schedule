@@ -9,7 +9,6 @@
         v-bind:modalButton="'Add Course'"
         v-bind:btnClass="'btn course-card btn-success fs-5 fw-bold border-0'"
         :add="true"
-        :post.sync="post"
         :rowIndex="1"
         :keyUp.sync="keyUp"
       />
@@ -27,7 +26,7 @@ export default {
   data() {
     return {
       keyUp: 0,
-      post: this.$store.state.post,
+      post: this.$store.getters.get_data,
     };
   },
 };

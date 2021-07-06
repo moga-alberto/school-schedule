@@ -1,8 +1,8 @@
 <template>
   <tr class="fs-5 hover">
     <th scope="row" :key="keyUp">{{ courseTitle }}</th>
-    <td :key="keyUp + teacherKey">{{ teacher }}</td>
-    <td :key="keyUp + studentsKey">{{ sNumber }}</td>
+    <td :key="teacherKey">{{ teacher }}</td>
+    <td :key="sNumber + studentsKey">{{ sNumber }}</td>
     <td style="width: 0;">
       <edit-modal
         class="edit-button"
@@ -12,11 +12,10 @@
         v-bind:modalAction="'Save'"
         v-bind:modalButton="html"
         v-bind:btnClass="'edit btn-light border-0 fs-6 fw-bold border-0 mx-3'"
-        :post.sync="post"
         :keyUp.sync="keyUp"
         :rowIndex="index"
         :add="false"
-        @update2="forceRerender"
+        v-on:update="forceRerender"
       />
     </td>
     <td style="width: 0;"><remove-button class="me-2" /></td>
@@ -38,12 +37,12 @@ export default {
     return {
       // eslint-disable-next-line quotes
       html: '<span>Edit<span/>',
-      teacher: this.post.body.courses[this.index - 1].teacher[0],
+      teacher: this.$store.getters.get_data.body.courses[this.index - 1].teacher[0],
       sNumber: 0,
       studentsKey: 100,
       teacherKey: 1000,
-      keyUp: 0,
-      post: this.$store.state.post,
+      keyUp: 1,
+      post: this.$store.getters.get_data,
     };
   },
   watch: {
@@ -54,9 +53,8 @@ export default {
       this.studentsKey += 1;
       this.teacherKey += 1;
     },
-    /* eslint-disable func-names */
-    /* eslint-disable object-shorthand */
-    getStudentsNumber: function () {
+
+    getStudentsNumber() {
       this.sNumber = 0;
       const listLength = this.post.body.courses[this.index - 1].studentsList
         .length;
@@ -72,8 +70,9 @@ export default {
   created() {
     this.getStudentsNumber();
   },
-  update() {
+  beforeUpdate() {
     this.getStudentsNumber();
+    this.forceRerender();
   },
 };
 </script>

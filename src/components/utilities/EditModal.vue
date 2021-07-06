@@ -75,7 +75,6 @@
                 class="p-1"
                 v-for="indexS in sNumber - 1"
                 :key="indexS"
-                :post.sync="post"
                 :indexS="indexS"
                 :rowIndex="rowIndex"
                 :add="add"
@@ -86,18 +85,12 @@
       </template>
 
       <template #modal-footer="{ ok, cancel}">
-        <!-- <b>Custom Footer</b> -->
-        <!-- Emulate built in modal footer ok and cancel button actions -->
         <b-button size="sm" variant="success" @click="ok()">
           {{ modalAction }}
         </b-button>
         <b-button size="sm" variant="danger" @click="cancel()">
           Cancel
         </b-button>
-        <!-- Button with custom close trigger value -->
-        <!-- <b-button size="sm" variant="outline-secondary" @click="hide('forget')">
-        Forget it
-      </b-button> -->
       </template>
     </b-modal>
   </div>
@@ -115,7 +108,7 @@ export default {
       teachers: null,
       course: null,
       status: 'accepted',
-      post: this.$store.state.post,
+      post: this.$store.getters.get_data,
     };
   },
   props: [
@@ -130,37 +123,24 @@ export default {
   ],
   components: { StudentCheck },
   methods: {
-    getPost() {
-      // console.log(this.$store.state.post);
-      // this.tNumber = Number(this.post.body.teachers.length);
-      // this.$http.get().then((res) => {
-      // this.post = res;
-      // this.tNumber = Number(this.$store.state.post.body.teachers.length);
-      // this.teachers = this.$store.state.post.body.teachers;
-      // this.course = this.$store.state.post.body.courses;
-      // this.sNumber = Number(this.$store.state.post.body.students.length);
-      // console.log(this.add);
-      // });
+    getNumbers() {
+      this.tNumber = Number(this.post.body.teachers.length);
+      this.teachers = this.post.body.teachers;
+      this.course = this.post.body.courses;
+      this.sNumber = Number(this.post.body.students.length);
     },
     sendPost() {
-      this.getPost();
-      this.keyUp += 1;
       const postData = this.post.body;
-      // console.log(postData);
       this.$http.put('', postData);
-      // console.log(postData);
-      // .then((res) => {
-      // console.log(res.body);
-      // });
+      this.$store.commit('setPost', this.post);
+      this.$emit('update');
     },
     ok() {
-      // this.getPost();
       this.sendPost();
-      // this.$emit('update2');
     },
   },
   created() {
-    this.getPost();
+    this.getNumbers();
   },
 };
 </script>

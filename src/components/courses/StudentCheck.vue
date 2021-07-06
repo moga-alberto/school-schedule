@@ -51,12 +51,13 @@ export default {
   data() {
     return {
       status: null,
-      student: this.post.body.students[this.indexS - 1].student,
-      post: this.$store.state.post,
+      student: null,
+      post: this.$store.getters.get_data,
     };
   },
   created() {
     this.checkIfAdd();
+    this.student = this.post.body.students[this.indexS - 1].student;
   },
 };
 </script>
