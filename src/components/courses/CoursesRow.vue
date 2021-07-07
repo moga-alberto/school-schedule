@@ -37,18 +37,26 @@ export default {
     return {
       // eslint-disable-next-line quotes
       html: '<span>Edit<span/>',
-      teacher: this.$store.getters.get_data.body.courses[this.index - 1].teacher[0],
+      teacher: this.$store.getters.get_data.body.courses[this.index - 1]
+        .teacher[0],
       sNumber: 0,
       studentsKey: 100,
       teacherKey: 1000,
       keyUp: 1,
       post: this.$store.getters.get_data,
+      updateFields: this.$store.getters.get_updateKey,
+      i: 0,
     };
   },
   watch: {
     post: 'getStudentsNumber',
+    updateFields: ['forceRerender', 'updateKey'],
   },
   methods: {
+    updateKey() {
+      this.$emit('update');
+    },
+
     forceRerender() {
       this.studentsKey += 1;
       this.teacherKey += 1;
@@ -68,8 +76,10 @@ export default {
     },
   },
   created() {
-    setTimeout(this.forceRerender(), 100);
     this.getStudentsNumber();
+  },
+  mounted() {
+    // this.updateKey();
   },
   beforeUpdate() {
     this.getStudentsNumber();

@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
     <Nav />
-    <router-view />
+    <router-view v-if="fulfiled" :key="key"/>
   </div>
 </template>
 
@@ -20,33 +20,39 @@ export default {
   data() {
     return {
       post: this.$store.getters.get_data,
+      fulfiled: false,
+      key: 0,
     };
   },
   methods: {
-    getCoursesNumber() {
-      this.coursesNumber = Number(this.$store.getters.get_data.body.courses.length);
-    },
     getData() {
       this.$http.get().then((res) => {
         const response = res;
         this.$store.commit('setPost', response);
       });
     },
-  },
-  mounted() {
-    this.getCoursesNumber();
+    updateFields() {
+      this.$store.commit('increment');
+    },
   },
   beforeCreate() {
     this.$http.get().then((res) => {
       const response = res;
       this.$store.commit('setPost', response);
+      this.fulfiled = true;
     });
   },
   created() {
     this.getData();
   },
+  mounted() {
+    this.updateFields();
+  },
   beforeUpdate() {
     this.getData();
+  },
+  watch: {
+    post: this.key += 1,
   },
 };
 </script>

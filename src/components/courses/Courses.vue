@@ -22,6 +22,7 @@
               v-bind:index="index"
               v-b-modal="index + reason + '-modal'"
               :courseTitle="post.body.courses[index - 1].courseName"
+              v-on:update="updateKey"
             />
           </tbody>
         </table>
@@ -45,7 +46,7 @@ export default {
     AddCourseButton,
     EditModal,
   },
-  props: [],
+  props: ['updateFields'],
   data() {
     return {
       reason: 'edit-course',
@@ -54,25 +55,26 @@ export default {
     };
   },
   methods: {
+    updateKey() {
+      let i = 0;
+      function increment() {
+        if (i < 5) {
+          setTimeout(() => {
+            this.updateFields += 1;
+            i += 1;
+            increment();
+          }, 500);
+        }
+      }
+      increment();
+    },
     getCoursesNumber() {
-      // this.$http.get().then((res) => {
-      // this.post = res;
       setTimeout(() => {
         this.post = this.$store.getters.get_data;
         this.coursesNumber = Number(this.post.body.courses.length);
       }, 100);
-      // this.coursesNumber = Number(this.post.body.courses.length);
-      // });
     },
-    /* eslint-disable func-names */
-    /* eslint-disable object-shorthand */
-    // update: function () {
-    //   this.getList();
-    // },
   },
-  // watch: {
-  //   post: 'update',
-  // },
   created() {
     this.getCoursesNumber();
   },
