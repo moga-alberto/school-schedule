@@ -11,7 +11,6 @@
       centered
       content-class="shadow"
       :title="modalTitle"
-      @ok="ok()"
     >
       <template #modal-header="{ close }">
         <!-- Emulate built in modal header close button action -->
@@ -33,10 +32,12 @@
                   >Course:</label
                 >
                 <b-form-input
-                  id="inline-form-input-name"
+                  :required="false"
+                  :id="forminputid"
                   class="mb-2 mr-sm-2 mb-sm-0 border-secondary"
                   :placeholder="'Course Name'"
                   :value="add ? '' : course[rowIndex - 1].courseName"
+                  @input="removeNotFilled(forminput)"
                 ></b-form-input>
               </b-form>
             </div>
@@ -48,11 +49,12 @@
                   >Teacher:</label
                 >
                 <b-form-select
-                  id="form-custom-select-pref"
+                  :id="formselectid"
                   class="mb-2 mr-sm-2 mb-sm-0 fs-6 p-2 w-100 border-secondary rounded"
-                  :options="[{ text: 'Choose teacher...', value: null }]"
                   :value="add ? null : course[rowIndex - 1].teacher[0]"
+                  @input="removeNotFilled(formselect)"
                 >
+                  <option :value="null" disabled>Choose teacher...</option>
                   <option
                     v-for="index in tNumber"
                     :key="index"
@@ -62,6 +64,11 @@
                 </b-form-select>
               </b-form>
             </div>
+          </div>
+          <div class="row justify-content-center mx-1" v-if="warning">
+            <b-alert show variant="danger" class="mt-3"
+              >Required information is incomplete!</b-alert
+            >
           </div>
           <div class="row w-100">
             <div
@@ -84,8 +91,8 @@
         </div>
       </template>
 
-      <template #modal-footer="{ ok, cancel}">
-        <b-button size="sm" variant="success" @click="ok()">
+      <template #modal-footer="{ cancel }">
+        <b-button size="sm" variant="success" @click="closeif()">
           {{ modalAction }}
         </b-button>
         <b-button size="sm" variant="danger" @click="cancel()">
@@ -98,17 +105,26 @@
 
 <script>
 import StudentCheck from '../courses/StudentCheck';
+/* eslint-disable prefer-template */
 
 export default {
   name: 'EditModal',
   data() {
     return {
-      // post: null,
       tNumber: null,
       teachers: null,
       course: null,
       status: 'accepted',
       post: this.$store.getters.get_data,
+      forminputid: 'inline-form-input-name' + toString(this.rowIndex),
+      formselectid: 'form-custom-select-pref' + toString(this.rowIndex),
+      spaces: 0,
+      warning: false,
+      forminput: {},
+      formselect: {},
+      inputvalue: 'null',
+      selectvalue: 'null',
+      isModalVisible: 'false',
     };
   },
   props: [
@@ -123,6 +139,63 @@ export default {
   ],
   components: { StudentCheck },
   methods: {
+    removeNotFilled(item) {
+      this.spaces = 0;
+      item.classList.remove('not-filled');
+      if (
+        (this.forminput.classList.contains('not-filled') === false) &&
+        (this.formselect.classList.contains('not-filled') === false)
+      ) {
+        this.removeWarning();
+      }
+    },
+    removeWarning() {
+      this.warning = false;
+    },
+    /* eslint-disable object-shorthand */
+    closeif() {
+      this.getelements();
+      this.spaces = 0;
+      const nameLength = this.inputvalue.length;
+      for (let i = 0; i < nameLength; i += 1) {
+        if (this.inputvalue[i] === ' ') {
+          this.spaces += 1;
+        }
+      }
+      if (
+        this.spaces < nameLength &&
+        nameLength !== 0 &&
+        this.selectvalue !== null
+      ) {
+        this.send();
+      } else {
+        if (this.spaces === nameLength || nameLength === 0) {
+          this.forminput.classList.add('not-filled');
+        }
+        if (this.selectvalue === '') {
+          this.formselect.classList.add('not-filled');
+        }
+        this.warning = true;
+      }
+    },
+    commitChanges() {
+      // if(add) {
+
+      // } else {
+
+      // }
+    },
+    send() {
+      this.getelements();
+      this.ok();
+      this.$bvModal.hide(this.reason + '-modal');
+    },
+    getelements() {
+      this.forminput = document.getElementById(this.forminputid);
+      this.formselect = document.getElementById(this.formselectid);
+      this.inputvalue = this.forminput.value;
+      this.selectvalue = this.formselect.value;
+    },
     getNumbers() {
       this.tNumber = Number(this.post.body.teachers.length);
       this.teachers = this.post.body.teachers;
@@ -142,11 +215,24 @@ export default {
   created() {
     this.getNumbers();
   },
+  mounted() {
+    // this.getelements();
+    // this.$watch('inputvalue', () => {
+    //   this.removeNotFilled(this.forminput);
+    // });
+    // this.$watch('selectvalue', () => {
+    //   this.removeNotFilled(this.formselect);
+    // });
+  },
 };
 </script>
 
 <style scoped>
 .edit {
   background-color: transparent;
+}
+.not-filled {
+  border: 2px solid red;
+  box-shadow: 0px 0px 1px 2px rgba(255, 0, 0, 0.3);
 }
 </style>

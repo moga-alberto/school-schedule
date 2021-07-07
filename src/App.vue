@@ -1,7 +1,13 @@
 <template>
   <div class="container-fluid" id="app">
     <Nav />
-    <router-view v-if="fulfiled" :key="key"/>
+    <router-view v-if="fulfiled" :key="key" />
+    <div
+      v-if="!fulfiled"
+      class="text-center d-flex vw-100 vh-100 justify-content-center align-items-center"
+    >
+      <b-spinner label="Spinning"></b-spinner>
+    </div>
   </div>
 </template>
 
@@ -52,7 +58,7 @@ export default {
     this.getData();
   },
   watch: {
-    post: this.key += 1,
+    post: (this.key += 1),
   },
 };
 </script>
