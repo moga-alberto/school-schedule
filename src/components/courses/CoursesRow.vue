@@ -68,6 +68,7 @@ export default {
     },
   },
   created() {
+    setTimeout(this.forceRerender(), 100);
     this.getStudentsNumber();
   },
   beforeUpdate() {
