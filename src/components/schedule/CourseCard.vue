@@ -3,21 +3,68 @@
     <div class="repeat">
       <div class="d-flex flex-column text-md-center">
         <div>
-          <b-button class="course-card" v-b-modal="'modal' + index + indx2"
-            >Open modal{{ json }}</b-button
+          <b-button
+            class="course-card"
+            v-b-modal="'modal' + index + '.' + column"
+            >Open modal</b-button
           >
           <b-modal
-            v-bind:id="'modal' + index + indx2"
+            v-bind:id="'modal' + index + '.' + column"
             ok-only
             centered
             hide-backdrop
             content-class="shadow"
-            :title="index + indx2"
+            :title="'modal' + index + '.' + column"
           >
-            <p class="my-2">
-              We've added the utility class <code>'shadow'</code>
-              to the modal content for added effect.
-            </p>
+            <template #modal-header="{ close }">
+              <h5 class="fw-bold">
+                {{ days[column - 1] + ', ' + modalTitle }}
+              </h5>
+              <b-button
+                variant="outline-dark"
+                class="btn btn-outline-dark"
+                @click="close()"
+                ><font-awesome-icon class=" fs-6 danger" icon="times"
+              /></b-button>
+            </template>
+            <b-form>
+              <label
+                class="mr-sm-2 mt-0 mb-2 fw-bold d-block"
+                for="form-custom-select-pref"
+                >Course:</label
+              >
+              <b-form-select
+                @input="getKey($event), getContent()"
+                :id="formselectid"
+                class="mb-2 mr-sm-2 mb-sm-0 fs-6 p-2 w-100 border-secondary rounded"
+                :value="courseName ? courseName : null"
+              >
+                <option :value="null">Choose course...</option>
+                <option
+                  v-for="course in coursesLength"
+                  :key="course"
+                  :value="courses[course - 1].courseName"
+                  >{{ courses[course - 1].courseName }}</option
+                >
+              </b-form-select>
+              <div class="container">
+                <div class="container fs-5 mt-3">
+                  <p v-if="teacherName">Teacher: {{ teacherName }}</p>
+                </div>
+                <div v-if="getStudentsList()" class="container">
+                  <h1 class="fs-4">Assigned Students:</h1>
+                  <p>{{ getStudentsList() }}</p>
+                </div>
+              </div>
+            </b-form>
+            <template #modal-footer="{ cancel }">
+              <b-button size="sm" @click="ok()">
+                ok
+              </b-button>
+              <b-button size="sm" variant="danger" @click="cancel()">
+                Cancel
+              </b-button>
+            </template>
           </b-modal>
         </div>
       </div>
@@ -27,13 +74,76 @@
 
 <script>
 export default {
-  props: ['index', 'indx2'],
+  props: ['index', 'column', 'modalTitle'],
   name: 'CourseCard',
   data() {
     return {
       name: 'Course Name',
-      json: this.jData,
+      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      post: {},
+      val: null,
+      formselectid: `formselect-${this.index}${this.column}`,
+      courses: {},
+      coursesLength: null,
+      courseName: null,
+      studentsList: null,
+      teacherName: null,
+      courseIndex: 0,
     };
+  },
+  methods: {
+    getKey(value) {
+      this.courseIndex = 0;
+      for (let i = 0; i < this.coursesLength; i += 1) {
+        if (this.post.body.courses[i].courseName !== value) {
+          this.courseIndex += 1;
+        }
+      }
+      console.log(value);
+    },
+    getContent() {
+      const index = this.courseIndex;
+      if (index) {
+        this.courseName = this.post.body.courses[index].courseName;
+        this.studentsList = this.post.body.courses[index].studentsList;
+        this.teacherName = this.post.body.courses[index].teacher[0];
+      }
+      console.log(this.courseName);
+      console.log(this.studentsList);
+      console.log(this.teacherName);
+    },
+    // getTeacherName() {
+    //   this.teacherName =
+    // },
+    getStudentsList() {
+      let List = null;
+      for (let i = 0; i < this.studentsList.length; i += 1) {
+        // eslint-disable-next-line quotes
+        if (this.studentsList[i] !== '') {
+          if (i === 0) {
+            List = `${this.studentsList[i]}`;
+          } else {
+            List = `${List}, ${this.studentsList[i]}`;
+          }
+        }
+      }
+      return List;
+    },
+  },
+  created() {
+    this.post = this.$store.getters.get_data;
+    this.courses = this.post.body.courses;
+    this.coursesLength = this.courses.length;
+    console.log(this.post);
+    this.courseName = this.post.body.position[this.index - 1].day[
+      this.column - 1
+    ].course;
+    this.teacherName = this.post.body.position[this.index - 1].day[
+      this.column - 1
+    ].teacher;
+    this.studentsList = this.post.body.position[this.index - 1].day[
+      this.column - 1
+    ].studentsList;
   },
 };
 </script>

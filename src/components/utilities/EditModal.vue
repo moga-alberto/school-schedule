@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-button
+      v-if="add"
       :class="btnClass"
       v-b-modal="reason + '-modal'"
       v-html="modalButton"
@@ -13,7 +14,6 @@
       :title="modalTitle"
     >
       <template #modal-header="{ close }">
-        <!-- Emulate built in modal header close button action -->
         <h5 class="fw-bold">{{ modalTitle }}</h5>
         <b-button
           variant="outline-dark"
@@ -32,12 +32,11 @@
                   >Course:</label
                 >
                 <b-form-input
-                  :required="false"
                   :id="forminputid"
                   class="mb-2 mr-sm-2 mb-sm-0 border-secondary"
                   :placeholder="'Course Name'"
                   :value="add ? '' : course[rowIndex - 1].courseName"
-                  @input="removeNotFilled(forminput)"
+                  @input="getelements(), removeNotFilled(forminput)"
                 ></b-form-input>
               </b-form>
             </div>
@@ -52,7 +51,7 @@
                   :id="formselectid"
                   class="mb-2 mr-sm-2 mb-sm-0 fs-6 p-2 w-100 border-secondary rounded"
                   :value="add ? null : course[rowIndex - 1].teacher[0]"
-                  @input="removeNotFilled(formselect)"
+                  @input="getelements(), removeNotFilled(formselect)"
                 >
                   <option :value="null" disabled>Choose teacher...</option>
                   <option
@@ -79,12 +78,15 @@
               style="height: 250px; overflow-y: auto; overflow-x: auto"
             >
               <student-check
+                :inputvalue="inputvalue"
+                :selectvalue="selectvalue"
                 class="p-1"
                 v-for="indexS in sNumber - 1"
                 :key="indexS"
                 :indexS="indexS"
                 :rowIndex="rowIndex"
                 :add="add"
+                @checked="addstudent"
               />
             </div>
           </div>
@@ -105,6 +107,7 @@
 
 <script>
 import StudentCheck from '../courses/StudentCheck';
+import EventBus from '../event-bus';
 /* eslint-disable prefer-template */
 
 export default {
@@ -122,9 +125,10 @@ export default {
       warning: false,
       forminput: {},
       formselect: {},
-      inputvalue: 'null',
-      selectvalue: 'null',
+      inputvalue: '',
+      selectvalue: null,
       isModalVisible: 'false',
+      studentsList: [],
     };
   },
   props: [
@@ -143,8 +147,8 @@ export default {
       this.spaces = 0;
       item.classList.remove('not-filled');
       if (
-        (this.forminput.classList.contains('not-filled') === false) &&
-        (this.formselect.classList.contains('not-filled') === false)
+        this.forminput.classList.contains('not-filled') === false &&
+        this.formselect.classList.contains('not-filled') === false
       ) {
         this.removeWarning();
       }
@@ -165,7 +169,7 @@ export default {
       if (
         this.spaces < nameLength &&
         nameLength !== 0 &&
-        this.selectvalue !== null
+        this.selectvalue !== ''
       ) {
         this.send();
       } else {
@@ -179,16 +183,27 @@ export default {
       }
     },
     commitChanges() {
-      // if(add) {
-
-      // } else {
-
-      // }
+      if (this.add) {
+        const course = {
+          courseName: this.inputvalue,
+          teacher: [this.selectvalue],
+          studentsList: this.studentsList,
+        };
+        this.post.body.courses.push(course);
+        EventBus.$emit('addcourse', course);
+      } else {
+        this.post.body.courses[this.rowIndex - 1].courseName = this.inputvalue;
+        this.post.body.courses[this.rowIndex - 1].teacher = [this.selectvalue];
+      }
     },
     send() {
       this.getelements();
-      this.ok();
+      this.commitChanges();
+      this.sendPost();
       this.$bvModal.hide(this.reason + '-modal');
+      if (!this.add) {
+        this.$emit('updatelist');
+      }
     },
     getelements() {
       this.forminput = document.getElementById(this.forminputid);
@@ -208,11 +223,14 @@ export default {
       this.$store.commit('setPost', this.post);
       this.$emit('update');
     },
-    ok() {
-      this.sendPost();
+    addstudent(value, index) {
+      this.studentsList[index - 1] = value;
     },
   },
   created() {
+    if (this.add) {
+      this.studentsList.length = this.post.body.students.length;
+    }
     this.getNumbers();
   },
   mounted() {
@@ -230,9 +248,5 @@ export default {
 <style scoped>
 .edit {
   background-color: transparent;
-}
-.not-filled {
-  border: 2px solid red;
-  box-shadow: 0px 0px 1px 2px rgba(255, 0, 0, 0.3);
 }
 </style>

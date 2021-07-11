@@ -42,6 +42,14 @@ import CalendarRow from '../schedule/CalendarRow';
 export default {
   name: 'Schedule',
   components: { CalendarRow },
+  mounted() {
+    const page = document.getElementById('schedule-link');
+    page.classList.add('active');
+  },
+  destroyed() {
+    const page = document.getElementById('schedule-link');
+    page.classList.remove('active');
+  },
 };
 </script>
 

@@ -15,10 +15,19 @@
 <script>
 export default {
   name: 'StudentCheck',
-  props: ['indexS', 'rowIndex', 'add'],
+  props: ['indexS', 'rowIndex', 'add', 'inputvalue', 'selectvalue'],
+  data() {
+    return {
+      status: null,
+      student: null,
+      post: this.$store.getters.get_data,
+    };
+  },
   methods: {
-    checkIfAdd() {
-      if (this.rowIndex) {
+    checkIfJoin() {
+      if (this.add) {
+        this.status = 'not_accepted';
+      } else if (this.rowIndex) {
         if (
           this.post.body.courses[this.rowIndex - 1].studentsList[
             this.indexS - 1
@@ -33,8 +42,17 @@ export default {
       }
     },
     check($event) {
-      // console.log($event);
-      if (this.rowIndex) {
+      if (this.add) {
+        if ($event === 'accepted') {
+          this.$emit(
+            'checked',
+            this.post.body.students[this.indexS - 1].student,
+            this.indexS,
+          );
+        } else {
+          this.$emit('checked', '');
+        }
+      } else if (this.rowIndex) {
         if ($event === 'accepted') {
           this.post.body.courses[this.rowIndex - 1].studentsList[
             this.indexS - 1
@@ -45,18 +63,10 @@ export default {
           ] = '';
         }
       }
-      // this.$emit('get-post', this.post);
     },
   },
-  data() {
-    return {
-      status: null,
-      student: null,
-      post: this.$store.getters.get_data,
-    };
-  },
   created() {
-    this.checkIfAdd();
+    this.checkIfJoin();
     this.student = this.post.body.students[this.indexS - 1].student;
   },
 };

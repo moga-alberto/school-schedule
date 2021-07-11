@@ -12,6 +12,7 @@ export default new Vuex.Store({
   state: {
     updateKey: 0,
     post: {},
+    items: [],
   },
   mutations: {
     setPost: (state, data) => {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
       }
       refresh();
     },
+    getItems: (state, items) => {
+      state.items = items;
+    },
   },
   actions: {
     getPost(store, data) {
@@ -39,6 +43,7 @@ export default new Vuex.Store({
   getters: {
     get_data: state => state.post,
     get_updateKey: state => state.updateKey,
+    get_items: state => state.items,
   },
 });
 

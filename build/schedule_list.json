@@ -616,60 +616,56 @@
   "position": [
     {
       "day": [
-        {
-          "course": ["Biology"],
-          "teacher": ["sanders"],
-          "studentsList": ["jane", "tina", "john"]
-        },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     },
     {
       "day": [
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     },
     {
       "day": [
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     },
     {
       "day": [
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     },
     {
       "day": [
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     },
     {
       "day": [
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] },
-        { "course": [], "teacher": [], "studentsList": [] }
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] },
+        { "course": "", "teacher": "", "studentsList": ["","","","","","","","","","","","","","","","","","","","",""] }
       ]
     }
   ]

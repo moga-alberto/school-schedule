@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="app">
     <Nav />
-    <router-view v-if="fulfiled" :key="key" />
+    <router-view v-if="fulfiled" key="key" @update="update" />
     <div
       v-if="!fulfiled"
       class="text-center d-flex vw-100 vh-100 justify-content-center align-items-center"
@@ -31,6 +31,9 @@ export default {
     };
   },
   methods: {
+    update() {
+      this.$mount();
+    },
     getData() {
       this.$http.get().then((res) => {
         const response = res;
@@ -57,9 +60,7 @@ export default {
   beforeUpdate() {
     this.getData();
   },
-  watch: {
-    post: (this.key += 1),
-  },
+  watch: {},
 };
 </script>
 
@@ -80,4 +81,51 @@ export default {
   background-color: #292b2c !important;
   color: #fff !important;
 }
+
+button[aria-checked="true"] {
+  background-color: #292b2c !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+button[aria-checked="false"] {
+  color: #292b2c !important;
+  background-color: #fff !important;
+}
+button[role="menuitem"] {
+  color: #292b2c !important;
+  background-color: #fff !important;
+}
+button[role="menuitem"]:focus {
+  box-shadow: none;
+}
+button[role="menuitem"]:active:focus {
+  box-shadow: none;
+  border: inset;
+}
+button[aria-checked="true"]:focus {
+ box-shadow: none;
+ border: none;
+}
+  tr[role="row"]{
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  tr[role="row"]:hover{
+  transform: scale(0.998);
+  border-top: 2px inset black;
+  border-bottom: 2px inset black;
+  transition: transform 0.3s linear;
+  cursor: pointer;
+  pointer-events:all;
+}
+  thead tr, thead td[role="row"]:hover{
+    pointer-events: none !important;
+}
+
+.not-filled {
+  border: 2px solid red;
+  box-shadow: 0px 0px 1px 2px rgba(255, 0, 0, 0.3);
+}
+
 </style>

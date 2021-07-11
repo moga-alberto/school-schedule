@@ -11,6 +11,7 @@
         :add="true"
         :rowIndex="1"
         :keyUp.sync="keyUp"
+        @addcourse="addcourse"
       />
     </div>
   </div>
@@ -28,6 +29,11 @@ export default {
       keyUp: 0,
       post: this.$store.getters.get_data,
     };
+  },
+  methods: {
+    addcourse(course) {
+      this.$emit('addcourse', course);
+    },
   },
 };
 </script>

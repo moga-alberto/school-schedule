@@ -8,30 +8,34 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Vue from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCalendarWeek, faTimes, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarWeek, faTimes, faClock, faEdit, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import VueResource from 'vue-resource';
 import Vuex from 'vuex';
+import VueVisible from 'vue-visible';
 import store from './store/store';
 import App from './App';
 import router from './router';
+
 
 Vue.use(store);
 Vue.use(Vuex);
 
 Vue.prototype.$store = store;
-
 const app = new Vue({
   /* .. other properties .. */
   store,
 });
 
+Vue.use(VueVisible);
 Vue.use(app);
 
 library.add(faCalendarWeek);
 library.add(faTimes);
 library.add(faClock);
 library.add(faEdit);
+library.add(faLock);
+library.add(faLockOpen);
 
 Vue.use(VueResource);
 Vue.use(BootstrapVue);
