@@ -154,6 +154,11 @@ export default {
         this.studentsList = this.post.body.courses[index].studentsList;
         this.teacherName = this.post.body.courses[index].teacher[0];
         this.studentsNumber = this.studentsList.length;
+      } else {
+        this.courseName = '';
+        this.studentsList = [];
+        this.teacherName = '';
+        this.studentsNumber = 0;
       }
     },
     getStudentsList() {
