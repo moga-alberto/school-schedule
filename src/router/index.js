@@ -3,7 +3,6 @@ import Vuex from 'vuex';
 import Router from 'vue-router';
 import Courses from '../components/courses/Courses';
 import Schedule from '../components/schedule/Schedule';
-import Teachers from '../components/teachers/Teachers';
 import Students from '../components/students/Students';
 
 Vue.use(Vuex);
@@ -21,11 +20,6 @@ export default new Router({
       path: '/schedule',
       name: 'Schedule',
       component: Schedule,
-    },
-    {
-      path: '/teachers',
-      name: 'Teachers',
-      component: Teachers,
     },
     {
       path: '/students',

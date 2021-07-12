@@ -22,11 +22,6 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold text-dark"  href="#/teachers" id="teachers-link"
-            >Teachers</a
-          >
-        </li>
-        <li class="nav-item">
           <a class="nav-link fw-bold text-dark" href="#/students" id="students-link"
             >Students</a
           >
@@ -43,8 +38,14 @@ export default {
 </script>
 
 <style scoped>
+
+.navbar {
+  height: 7vh;
+}
 nav .active {
   background-color: #292b2c !important;
   color: #fff !important;
 }
+
+/* @input (max-width: ;) */
 </style>

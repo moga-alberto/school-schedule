@@ -2,12 +2,41 @@
   <td>
     <div class="repeat">
       <div class="d-flex flex-column text-md-center">
-        <div>
+        <div class="h-100">
           <b-button
             class="course-card"
             v-b-modal="'modal' + index + '.' + column"
-            >Open modal</b-button
           >
+            <div
+              class="container-fluid d-flex flex-column justify-content-center align-items-center"
+              style="width: 7rem; height: 6rem; vertical-align: middle;"
+            >
+              <p
+                class="mt-0 mb-0 fw-bold"
+                style="font-size: .8rem; word-wrap: normal;"
+                v-if="courseName"
+                :key="courseName"
+              >
+                {{ courseName }}
+              </p>
+              <p
+                class="mb-0 fw-bold"
+                style="font-size: .7rem"
+                v-if="teacherName"
+                :key="teacherName"
+              >
+                T: {{ teacherName }}
+              </p>
+              <p
+                class="mb-0 fw-bold"
+                style="font-size: .7rem"
+                v-if="getStudentsList()"
+                :key="studentsNumber"
+              >
+                S: {{ studentsNumber }}
+              </p>
+            </div>
+          </b-button>
           <b-modal
             v-bind:id="'modal' + index + '.' + column"
             ok-only
@@ -34,7 +63,7 @@
                 >Course:</label
               >
               <b-form-select
-                @input="getKey($event), getContent()"
+                @input="getContent($event)"
                 :id="formselectid"
                 class="mb-2 mr-sm-2 mb-sm-0 fs-6 p-2 w-100 border-secondary rounded"
                 :value="courseName ? courseName : null"
@@ -87,34 +116,48 @@ export default {
       coursesLength: null,
       courseName: null,
       studentsList: null,
-      teacherName: null,
+      teacherName: '',
       courseIndex: 0,
+      studentsNumber: 0,
     };
   },
   methods: {
+    ok() {
+      this.post.body.position[this.index - 1].day[
+        this.column - 1
+      ].course = this.courseName;
+      this.post.body.position[this.index - 1].day[
+        this.column - 1
+      ].studentsList = this.studentsList;
+      this.post.body.position[this.index - 1].day[
+        this.column - 1
+      ].teacher = this.teacherName;
+      const postData = this.post.body;
+      this.$http.put('', postData).then(() => {
+        // this.$emit('update');
+      });
+      this.$store.commit('setPost', this.post);
+      // this.$emit('update');
+      this.$bvModal.hide(`modal${this.index}.${this.column}`);
+    },
     getKey(value) {
       this.courseIndex = 0;
-      for (let i = 0; i < this.coursesLength; i += 1) {
-        if (this.post.body.courses[i].courseName !== value) {
-          this.courseIndex += 1;
-        }
+      let i = 0;
+      while (this.post.body.courses[i].courseName !== value) {
+        this.courseIndex += 1;
+        i += 1;
       }
-      console.log(value);
     },
-    getContent() {
-      const index = this.courseIndex;
-      if (index) {
+    getContent(value) {
+      if (value !== null) {
+        this.getKey(value);
+        const index = this.courseIndex;
         this.courseName = this.post.body.courses[index].courseName;
         this.studentsList = this.post.body.courses[index].studentsList;
         this.teacherName = this.post.body.courses[index].teacher[0];
+        this.studentsNumber = this.studentsList.length;
       }
-      console.log(this.courseName);
-      console.log(this.studentsList);
-      console.log(this.teacherName);
     },
-    // getTeacherName() {
-    //   this.teacherName =
-    // },
     getStudentsList() {
       let List = null;
       for (let i = 0; i < this.studentsList.length; i += 1) {
@@ -134,7 +177,6 @@ export default {
     this.post = this.$store.getters.get_data;
     this.courses = this.post.body.courses;
     this.coursesLength = this.courses.length;
-    console.log(this.post);
     this.courseName = this.post.body.position[this.index - 1].day[
       this.column - 1
     ].course;
@@ -144,6 +186,10 @@ export default {
     this.studentsList = this.post.body.position[this.index - 1].day[
       this.column - 1
     ].studentsList;
+    this.studentsNumber = this.studentsList.length;
+  },
+  updated() {
+    this.post = this.$store.getters.get_data;
   },
 };
 </script>

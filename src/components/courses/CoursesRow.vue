@@ -1,5 +1,5 @@
 <template>
-  <tr class="fs-5 hover">
+  <tr class="fs-sm-5 hover">
     <th
       style="vertical-align: middle"
       scope="row"

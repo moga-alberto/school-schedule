@@ -1,6 +1,6 @@
 <template>
-  <div class="container w-75" id="courses">
-    <div class="card border-dark mb-3 mt-5">
+  <div class="container-flow mx-0 w-100 h-100" id="courses">
+    <div class="card border-dark mb-3 mt-0"  style="width: 100%" >
       <div class="card-header fw-bold fs-3 border-dark dark">
         This week's schedule
       </div>
@@ -24,11 +24,6 @@
               :key="index"
               v-bind:indx="index.toString()"
             />
-            <!-- <CalendarRow />
-            <CalendarRow />
-            <CalendarRow />
-            <CalendarRow />
-            <CalendarRow /> -->
           </tbody>
         </table>
       </div>
@@ -53,4 +48,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
