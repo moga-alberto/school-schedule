@@ -101,16 +101,6 @@ export default {
     remove() {
       this.$emit('removecourse', this.index);
     },
-    // updatekey() {
-    //   // this.$emit('update');
-    // },
-
-    // forceRerender() {
-    //   // this.studentsKey += 1;
-    //   // this.teacherKey += 1;
-    //   // this.keyUp += 1;
-    // },
-
     getStudentsNumber() {
       this.post = this.$store.getters.get_data;
       this.sNumber = 0;
@@ -125,12 +115,7 @@ export default {
     },
   },
   created() {
-    // this.pagination();
     this.getStudentsNumber();
-  },
-  beforeUpdate() {
-    // this.getStudentsNumber();
-    // this.forceRerender();
   },
 };
 </script>
@@ -150,7 +135,6 @@ export default {
 
 .hover:hover .edit-button {
   visibility: visible;
-  /* background-color: none !important; */
 }
 
 .hide {

@@ -1,14 +1,14 @@
 <template>
   <div class="container-flow mx-0 w-100 h-100" id="courses">
-    <div class="card border-dark mb-3 mt-0"  style="width: 100%" >
-      <div class="card-header fw-bold fs-3 border-dark dark">
+    <div class="card border-dark rounded-0 mb-3 mt-0"  style="width: 100%; height: 93vh;" >
+      <div class="card-header fw-bold fs-5 border-dark rounded-0 dark">
         This week's schedule
       </div>
-      <div class="card-body text bg-light">
+      <div class="card-body text bg-light" style="overflow-x: scroll">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">
+              <th scope="col" class="position">
                 <font-awesome-icon class="fs-4" icon="clock" />
               </th>
               <th scope="col">Monday</th>
@@ -18,7 +18,7 @@
               <th scope="col">Friday</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="">
             <CalendarRow
               v-for="index in 6"
               :key="index"
@@ -49,5 +49,9 @@ export default {
 </script>
 
 <style scoped>
-
+@media(max-width: 768px) {
+  .position {
+    display: none;
+  }
+}
 </style>

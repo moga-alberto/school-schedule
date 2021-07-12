@@ -8,28 +8,26 @@
             v-b-modal="'modal' + index + '.' + column"
           >
             <div
-              class="container-fluid d-flex flex-column justify-content-center align-items-center"
-              style="width: 7rem; height: 6rem; vertical-align: middle;"
+              class="container-fluid d-flex flex-column box-content
+              justify-content-center align-items-center box-card"
             >
+              <p class="position align-middle p-5">{{modalTitle}}</p>
               <p
-                class="mt-0 mb-0 fw-bold"
-                style="font-size: .8rem; word-wrap: normal;"
+                class="mt-0 mb-0 fw-bold course box-content"
                 v-if="courseName"
                 :key="courseName"
               >
                 {{ courseName }}
               </p>
               <p
-                class="mb-0 fw-bold"
-                style="font-size: .7rem"
+                class="mb-0 fw-bold to-hide"
                 v-if="teacherName"
                 :key="teacherName"
               >
                 T: {{ teacherName }}
               </p>
               <p
-                class="mb-0 fw-bold"
-                style="font-size: .7rem"
+                class="mb-0 fw-bold to-hide"
                 v-if="getStudentsList()"
                 :key="studentsNumber"
               >
@@ -195,9 +193,59 @@ export default {
 </script>
 
 <style scoped>
+.position {
+  display: none;
+}
+
 .course-card {
   width: 100%;
   height: 100%;
   min-height: 80px;
+}
+
+.box-card {
+  width: 7rem;
+  height: 6rem;
+  vertical-align: middle;
+}
+
+.course {
+  font-size: 0.8rem;
+  word-wrap: normal;
+}
+
+.to-hide {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 872px) {
+  .to-hide {
+    display: none;
+  }
+
+  .course {
+    font-size: clamp(0.5rem, 70%, 0.8rem);
+  }
+
+  .box-card {
+  width: 4rem;
+  height: 6rem;
+  }
+}
+
+@media(max-width: 768px) {
+  .box-content {
+    display: none;
+  }
+
+  .position {
+    display: initial;
+    font-size: .8rem;
+  }
+
+  .box-card {
+  width: 4.8rem;
+  height: 4.8rem;
+  }
 }
 </style>

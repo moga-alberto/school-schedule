@@ -1,7 +1,7 @@
 <template>
   <div class="container-flow" id="courses" :key="componentKey">
-    <div class="card border-dark mb-3 mt-0" style="height: 93vh">
-      <div class="card-header fw-bold fs-sm-3 border-dark dark">
+    <div class="card border-dark rounded-0 mb-3 mt-0" style="height: 93vh">
+      <div class="card-header fw-bold fs-5 border-dark rounded-0 dark">
         Courses
       </div>
       <div
@@ -16,7 +16,7 @@
             class="bg-light w-100"
             style="position: sticky; top: -1px; z-index: 100;"
           >
-            <tr class="fs-sm-5" style="vertical-align: middle;">
+            <tr class="" style="vertical-align: middle;">
               <th scope="col">Course</th>
               <th scope="col">Teacher</th>
               <th scope="col">Students</th>
@@ -48,7 +48,7 @@
           v-visible="edit"
           class="my-auto justify-self-start"
         />
-        <div class="w-auto d-flex  justify-self-start justify-self-sm-end fs-sm-4 fw-bold">
+        <div class="w-auto d-flex  justify-self-start justify-self-sm-end fw-bold">
           Toggle edit:
         </div>
         <div class="form-check form-switch justify-self-end">
@@ -187,5 +187,11 @@ export default {
 }
 #flexSwitchCheckDefault {
   transition: background-color 0.5s ease;
+}
+
+@media(max-width: 800px) {
+  .form-check-label {
+    display: none !important;
+  }
 }
 </style>

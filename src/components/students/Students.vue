@@ -1,7 +1,7 @@
 <template>
-  <div class="container w-75" id="courses">
-    <div class="card border-dark mb-3 mt-3">
-      <div class="card-header fw-bold fs-3 border-dark dark">
+  <div class="container-flow w-100" id="courses">
+    <div class="card border-dark rounded-0 mb-3 mt-0" style="height: 93vh">
+      <div class="card-header fw-bold border-dark fs-5 rounded-0 dark">
         Students
       </div>
       <div class="card-body text bg-light pt-0" style="overflow-y: scroll;">
@@ -27,8 +27,6 @@
           :per-page="perPage"
           aria-controls="my-table"
         ></b-pagination>
-
-        <!-- <p class="mt-3">Current Page: {{ currentPage }}</p> -->
       </div>
     </div>
     <edit-student
@@ -51,7 +49,7 @@ export default {
   name: 'Students',
   data() {
     return {
-      perPage: 6,
+      perPage: 14,
       currentPage: 1,
       items: [],
       post: {},
@@ -171,4 +169,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

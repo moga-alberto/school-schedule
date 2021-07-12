@@ -34,7 +34,6 @@
                 ></b-form-input>
               </b-form>
             </div>
-            <!-- <div class="col"></div> -->
           </div>
           <div class="row justify-content-center mx-1" v-if="warning">
             <b-alert show variant="danger" class="mt-3"

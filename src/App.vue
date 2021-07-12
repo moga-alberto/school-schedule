@@ -56,6 +56,8 @@ export default {
   },
   mounted() {
     this.updateFields();
+    const root = '/schedule';
+    this.$router.push({ path: root }).catch(() => {});
   },
   beforeUpdate() {
     this.getData();
@@ -82,45 +84,46 @@ export default {
   color: #fff !important;
 }
 
-button[aria-checked="true"] {
+button[aria-checked='true'] {
   background-color: #292b2c !important;
   color: #fff !important;
   font-weight: bold;
 }
-button[aria-checked="false"] {
+button[aria-checked='false'] {
   color: #292b2c !important;
   background-color: #fff !important;
 }
-button[role="menuitem"] {
+button[role='menuitem'] {
   color: #292b2c !important;
   background-color: #fff !important;
 }
-button[role="menuitem"]:focus {
+button[role='menuitem']:focus {
   box-shadow: none;
 }
-button[role="menuitem"]:active:focus {
+button[role='menuitem']:active:focus {
   box-shadow: none;
   border: inset;
 }
-button[aria-checked="true"]:focus {
- box-shadow: none;
- border: none;
+button[aria-checked='true']:focus {
+  box-shadow: none;
+  border: none;
 }
-  tr[role="row"]{
-    vertical-align: middle;
-    text-align: center;
-  }
+tr[role='row'] {
+  vertical-align: middle;
+  text-align: center;
+}
 
-  tr[role="row"]:hover{
+tr[role='row']:hover {
   transform: scale(0.998);
   border-top: 2px inset black;
   border-bottom: 2px inset black;
   transition: transform 0.3s linear;
   cursor: pointer;
-  pointer-events:all;
+  pointer-events: all;
 }
-  thead tr, thead td[role="row"]:hover{
-    pointer-events: none !important;
+thead tr,
+thead td[role='row']:hover {
+  pointer-events: none !important;
 }
 
 .not-filled {
@@ -128,4 +131,9 @@ button[aria-checked="true"]:focus {
   box-shadow: 0px 0px 1px 2px rgba(255, 0, 0, 0.3);
 }
 
+@media(max-width: 768px) {
+  td:nth-child(4) ,th:nth-child(4) {
+    display: none;
+  }
+}
 </style>

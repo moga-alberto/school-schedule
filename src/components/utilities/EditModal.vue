@@ -233,15 +233,6 @@ export default {
     }
     this.getNumbers();
   },
-  mounted() {
-    // this.getelements();
-    // this.$watch('inputvalue', () => {
-    //   this.removeNotFilled(this.forminput);
-    // });
-    // this.$watch('selectvalue', () => {
-    //   this.removeNotFilled(this.formselect);
-    // });
-  },
 };
 </script>
 

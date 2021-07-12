@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container w-75 justify-content-between">
-      <a class="navbar-brand fw-bold fs-3 ms-3" href="#"
+    <div class="container w-75 justify-content-center justify-content-lg-between">
+      <a class="navbar-brand fw-bold fs-3 ms-3 me-3" href="#"
         >School Schedule <font-awesome-icon class="mx-1" icon="calendar-week"
       /></a>
       <ul class="nav nav-pills">
@@ -47,5 +47,14 @@ nav .active {
   color: #fff !important;
 }
 
-/* @input (max-width: ;) */
+@media(max-width: 800px) {
+  .navbar-brand {
+    display: none;
+  }
+
+  * {
+    font-size: 0.83rem !important;
+  }
+
+}
 </style>
